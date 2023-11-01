@@ -17,6 +17,6 @@ class SteeringModel(nn.Module):
 
     def forward(self, x):
         # Normalize the input image
-        x = (x / 127.5) - 1.0
+        # x = (x / 127.5) - 1.0
         x = self.resnet(x)
         return x

@@ -16,18 +16,22 @@ from networks import *
 features_directory = './data/'
 labels_file = './data/driving_log.csv'
 
-# Load the data and transform to PyTorch tensors
-# Very important parameter, defining the shift variable for left and right steering angle
-delta = 0.2
-features, labels = data_loading(delta,labels_file,features_directory)
+# # Load the data and transform to PyTorch tensors
+# # Very important parameter, defining the shift variable for left and right steering angle
+# delta = 0.2
+# features, labels = data_loading(delta,labels_file,features_directory)
+
+#load the features and labels from .npy
+features = np.load('./features.npy')
+labels = np.load('./labels.npy')
 
 # Split the data into train and validation sets
 dataset = SteeringDataset(features, labels, transform=transforms.ToTensor())
 train_dataset, val_dataset = random_split(dataset, [int(len(dataset)*0.9), len(dataset)-int(len(dataset)*0.9)])
 
 # Define the data loaders
-train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True)
-val_loader = DataLoader(val_dataset, batch_size=128, shuffle=False)
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
 
 model = SteeringModel()
 # Use CUDA if available
@@ -39,16 +43,17 @@ model.to(device)
 
 # Optimize
 criterion = nn.MSELoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0.0)
+optimizer = optim.Adam(model.parameters(), lr=0.0012, betas=(0.9, 0.999), eps=1e-08, weight_decay=0.0)
 
 train_losses = []
 val_losses = []
 
 best_val_loss = np.inf
-patience = 10
+patience = 5
 num_epochs_no_improvement = 0
 
-for epoch in range(1000):
+print('Training started...')
+for epoch in range(10):
     running_loss = 0.0
     for i, data in enumerate(train_loader, 0):
         inputs, labels = data
@@ -91,7 +96,8 @@ for epoch in range(1000):
 # Save the model architecture and parameters
 model_json = './model.json'
 model_h5 = './model.h5'
-torch.save(model.state_dict(), model_h5)
+model_pth = './model.pth'
+torch.save(model.state_dict(), model_pth)
 
 
 
