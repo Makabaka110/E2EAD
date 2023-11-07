@@ -54,11 +54,25 @@ def telemetry(sid, data):
                 print('steering_angle.item()', steering_angle)
 
             # The driving model currently just outputs a constant throttle. Feel free to edit this.
-            throttle = 0.1
-            speed = 20
+            if (float(speed) < 10):
+                throttle = 0.4 
+            else:
+                # When speed is below 20 then increase throttle by speed_factor
+                if ((float(speed)) < 25):
+                    speed_factor = 1.35
+                else:
+                    speed_factor = 1.0 
+                if (abs(steering_angle) < 0.1): 
+                    throttle = 0.1 * speed_factor
+                elif (abs(steering_angle) < 0.5):
+                    throttle = 0.05 * speed_factor
+                else:
+                    throttle = 0.01 * speed_factor
             # Send the steering angle and throttle back to the simulator
-            print('Steering angle =', '%5.2f'%(float(steering_angle)), 'Throttle =', '%.2f'%(float(throttle)), 'Speed  =', '%.2f'%(float(speed)))
-            send_control(steering_angle, throttle, speed)
+            # print('Steering angle =', '%5.2f'%(float(steering_angle)), 'Throttle =', '%.2f'%(float(throttle)), 'Speed  =', '%.2f'%(float(speed)))
+            print('Steering angle =', '%5.2f'%(float(steering_angle)), 'Throttle =', '%.2f'%(float(throttle)))
+            # send_control(steering_angle, throttle, speed)
+            send_control(steering_angle, throttle)
         except Exception as e:
             print(e)
     else:
@@ -69,14 +83,15 @@ def telemetry(sid, data):
 def connect(sid, environ):
     
     print("Connected ",sid)
-    send_control(0.0,0.0,5)
+    send_control(0.0,0.0)
 
 
-def send_control(steering_angle, throttle, speed):
+# def send_control(steering_angle, throttle, speed):
+def send_control(steering_angle, throttle):
     sio.emit("steer", data={
         'steering_angle': steering_angle.__str__(),
         'throttle': throttle.__str__(),
-        'speed': speed.__str__()
+        # 'speed': speed.__str__()
     }, skip_sid=True)
     # print("send control")
 
@@ -89,7 +104,6 @@ if __name__ == '__main__':
     model.load_state_dict(torch.load('model.pth'))
     model.eval()
 
-    print(11111111111)
     # Start the server and listen for incoming connections
     app = socketio.Middleware(sio, app)
     eventlet.wsgi.server(eventlet.listen(('', 4567)), app)

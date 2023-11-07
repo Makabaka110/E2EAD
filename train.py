@@ -15,6 +15,9 @@ from networks import *
 # Define the file directory
 features_directory = './data/'
 labels_file = './data/driving_log.csv'
+model_pth = './model.pth'
+dataset_class = SteeringDatasetLSTM
+model_class = SteeringModelLSTM
 
 # # Load the data and transform to PyTorch tensors
 # # Very important parameter, defining the shift variable for left and right steering angle
@@ -26,16 +29,16 @@ features = np.load('./features.npy')
 labels = np.load('./labels.npy')
 
 # Split the data into train and validation sets
-dataset = SteeringDataset(features, labels, transform=transforms.ToTensor())
+dataset = dataset_class(features, labels, transform=transforms.ToTensor())
 train_dataset, val_dataset = random_split(dataset, [int(len(dataset)*0.9), len(dataset)-int(len(dataset)*0.9)])
 
 # Define the data loaders
-train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
+train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
+val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False)
 
-model = SteeringModel()
+model = model_class()
 # Use CUDA if available
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
 print(device)
 model.to(device)
 # #print model datatype float or double
@@ -94,9 +97,6 @@ for epoch in range(10):
             break
 
 # Save the model architecture and parameters
-model_json = './model.json'
-model_h5 = './model.h5'
-model_pth = './model.pth'
 torch.save(model.state_dict(), model_pth)
 
 

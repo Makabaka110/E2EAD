@@ -1,6 +1,8 @@
 import torch.nn as nn
 import torchvision.models as models
 
+# Naive steering model with resnet50 
+
 # Define the model
 class SteeringModel(nn.Module):
     def __init__(self):
