@@ -7,3 +7,5 @@ __pycache__/*
 dataloader/__pycache__/*
 .vscode/*
 runs/*
+__pycache__/*
+utils/__pycache__/*
