@@ -1,0 +1,9 @@
+networks/__pycache__/*
+simulator-windows-64/*
+data/*
+dataloader/__pycache__/
+models/*
+__pycache__/*
+dataloader/__pycache__/*
+.vscode/*
+runs/*
