@@ -20,3 +20,5 @@ class SteeringModelLSTM(nn.Module):
         x, _ = self.lstm(x)
         x = self.fc(x[:, -1, :])
         return x
+    
+    
