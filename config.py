@@ -2,7 +2,7 @@ from dataloader import *
 from networks import *
 
 # data type, model type AND their classes
-DATA_TYPE = 'Keyboard_10mins'
+DATA_TYPE = 'keyboard_10min'
 MODEL_TYPE = 'ResNet50'
 
 DATA_TYPE_CLASS = SteeringDataset
@@ -20,14 +20,14 @@ LABELS = DATA_PATH + 'labels.npy'
 MODEL_PATH = './models/{}/{}/'.format(DATA_TYPE,MODEL_TYPE)
 
 # load model path
-LOAD_MODEL_PATH = './models/{}/{}/model.pth'.format(DATA_TYPE,MODEL_TYPE)
+LOAD_MODEL_PATH = './models/{}/{}/epho_11.pth'.format(DATA_TYPE,MODEL_TYPE)
 
 #CUDA device
 DEVICE = "cuda"
 
 # Hyperparameters
-BATCH_SIZE = 32
-LEARNING_RATE = 0.0012
+BATCH_SIZE = 16
+LEARNING_RATE = 0.001
 MAX_EPOCHS = 100
 WEIGHT_DECAY = 0.0
 PATIENCE = 5

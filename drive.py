@@ -56,11 +56,11 @@ def telemetry(sid, data):
 
             # The driving model currently just outputs a constant throttle. Feel free to edit this.
             if (float(speed) < 10):
-                throttle = 0.4 
+                throttle = 0.1
             else:
                 # When speed is below 20 then increase throttle by speed_factor
                 if ((float(speed)) < 25):
-                    speed_factor = 1.35
+                    speed_factor = 0.5
                 else:
                     speed_factor = 1.0 
                 if (abs(steering_angle) < 0.1): 
@@ -98,11 +98,7 @@ def send_control(steering_angle, throttle):
 
 if __name__ == '__main__':
     model = config.MODEL_TYPE_CLASS()
-    # # Use CUDA if available
-    # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    # print(device)
-    # model.to(device)
-    model.load_state_dict(torch.load('models/Keyboard_10mins/ResNet50/epho_9.pth'))
+    model.load_state_dict(torch.load(config.LOAD_MODEL_PATH))
     model.eval()
 
     # Start the server and listen for incoming connections
