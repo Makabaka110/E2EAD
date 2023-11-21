@@ -13,7 +13,7 @@ from torch.utils.tensorboard import SummaryWriter
 # Import the custom classes
 from dataloader import *
 from networks import *
-import config
+import config 
 
 writer = SummaryWriter()
 # Split the data into train and validation sets
