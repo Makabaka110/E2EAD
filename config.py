@@ -7,15 +7,15 @@ import os
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # data type, model type AND their classes
-DATA_TYPE = 'keyboard_10min'
+DATA_TYPE = 'github_data'
 MODEL_TYPE = 'ResNet50'
 
 DATA_TYPE_CLASS = SteeringDataset
 MODEL_TYPE_CLASS = SteeringModel
 
 #raw data path
-DATA_PATH = ROOT_DIR + '/data/keyboard_10min/'
-LABELS_FILE = ROOT_DIR+ '/data/keyboard_10min/driving_log.csv'
+DATA_PATH = ROOT_DIR + '/data/github_data/'
+LABELS_FILE = ROOT_DIR+ '/data/github_data/modified_driving_log.csv'
 
 # features and labels path
 FEATURES = DATA_PATH + 'features.npy'
@@ -25,7 +25,7 @@ LABELS = DATA_PATH + 'labels.npy'
 MODEL_PATH = ROOT_DIR+'/models/{}/{}/'.format(DATA_TYPE,MODEL_TYPE)
 
 # load model path
-LOAD_MODEL_PATH = ROOT_DIR+'/models/{}/{}/epho_11.pth'.format(DATA_TYPE,MODEL_TYPE)
+LOAD_MODEL_PATH = ROOT_DIR+'/models/{}/{}/epho_9.pth'.format(DATA_TYPE,MODEL_TYPE)
 
 #CUDA device
 DEVICE = "cuda"
