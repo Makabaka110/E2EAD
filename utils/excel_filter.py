@@ -1,7 +1,7 @@
 import csv
 
 # Load the CSV file
-file_path = 'driving_log.csv'
+file_path = '../data/keyboard_10min/driving_log.csv'
 with open(file_path, 'r') as f:
     reader = csv.reader(f)
     next(reader)  # Skip the header row
@@ -43,7 +43,7 @@ print(f"Original data has {len(data)} rows")
 print(f"Filtered data has {len(filtered_data)} rows")
 
 # Save the modified data to a new CSV file
-output_file_path = 'modified_csv_file.csv'
+output_file_path = '../data/keyboard_10min/modified_driving_log.csv'
 with open(output_file_path, 'w', newline='') as f:
     writer = csv.writer(f)
     writer.writerows(filtered_data)
