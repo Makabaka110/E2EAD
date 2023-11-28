@@ -25,6 +25,8 @@ train_loader = DataLoader(train_dataset, batch_size=config.BATCH_SIZE, shuffle=T
 val_loader = DataLoader(val_dataset, batch_size=config.BATCH_SIZE, shuffle=False)
 
 model = config.MODEL_TYPE_CLASS()
+if config.LOAD_TRAIN_MODEL_PATH:
+    model.load_state_dict(torch.load(config.LOAD_TRAIN_MODEL_PATH))
 # Use CUDA if available
 device = torch.device(config.DEVICE if torch.cuda.is_available() else "cpu")
 print(device)

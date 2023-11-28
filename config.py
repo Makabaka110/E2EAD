@@ -14,8 +14,8 @@ DATA_TYPE_CLASS = SteeringDataset
 MODEL_TYPE_CLASS = SteeringModel
 
 #raw data path
-DATA_PATH = ROOT_DIR + '/data/xbox_inverse_10min/'
-LABELS_FILE = ROOT_DIR+ '/data/xbox_inverse_10min/driving_log.csv'
+DATA_PATH = ROOT_DIR + '/data/{}/'.format(DATA_TYPE)
+LABELS_FILE = ROOT_DIR+ '/data/{}/driving_log.csv'.format(DATA_TYPE)
 
 # features and labels path
 FEATURES = DATA_PATH + 'features.npy'
@@ -32,11 +32,11 @@ DEVICE = "cuda"
 
 # Hyperparameters
 BATCH_SIZE = 32
-LEARNING_RATE = 0.001
+LEARNING_RATE = 0.0012
 MAX_EPOCHS = 100
 WEIGHT_DECAY = 0.0
 PATIENCE = 5
-DELTA = 0.2
+DELTA = 0.25
 BETAS = (0.9, 0.999)
 
 

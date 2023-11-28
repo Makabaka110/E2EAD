@@ -98,7 +98,7 @@ def send_control(steering_angle, throttle):
 
 if __name__ == '__main__':
     model = config.MODEL_TYPE_CLASS()
-    model.load_state_dict(torch.load(config.LOAD_MODEL_PATH, map_location=torch.device('cuda')))
+    model.load_state_dict(torch.load(config.LOAD_MODEL_PATH, map_location=torch.device(config.DEVICE)))
     model.eval()
 
     # Start the server and listen for incoming connections
