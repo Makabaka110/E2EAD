@@ -7,8 +7,9 @@ import os
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # data type, model type AND their classes
-DATA_TYPE = 'xbox_inverse_10min'
+DATA_TYPE = 'combined_dataset'
 MODEL_TYPE = 'ResNet50'
+LOAD_TRAIN_MODEL_PATH = None
 
 DATA_TYPE_CLASS = SteeringDataset
 MODEL_TYPE_CLASS = SteeringModel
