@@ -8,7 +8,7 @@ sys.path.append("..")
 import config
 
 model = config.MODEL_TYPE_CLASS()
-model.load_state_dict(torch.load(config.LOAD_MODEL_PATH))
+model.load_state_dict(torch.load(config.LOAD_MODEL_PATH, map_location=torch.device('cuda')))
 model.eval()
 
 # Split the data into train and validation sets

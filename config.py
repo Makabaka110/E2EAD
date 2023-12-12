@@ -8,9 +8,9 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # data type, model type AND their classes
 
-# Data type including 'keyboard_10min', 'github_data', 'xbox_5min', 'xbox_20min','github_xbox20','xbox_inverse_10min'
-DATA_TYPE = 'github_xbox20' 
-MODEL_TYPE = 'ResNet50'
+# Data type including 'keyboard_10min', 'github_data', 'xbox_5min', 'xbox_20min','github_xbox20','xbox_inverse_10min'DATA_TYPE = 'github_data' 
+DATA_TYPE = 'combined_dataset'
+LOAD_TRAIN_MODEL_PATH = None
 
 DATA_TYPE_CLASS = SteeringDataset
 MODEL_TYPE_CLASS = SteeringModel
