@@ -16,7 +16,7 @@ MODEL_TYPE_CLASS = SteeringModel
 
 #raw data path
 DATA_PATH = ROOT_DIR + '/data/{}/'.format(DATA_TYPE)
-LABELS_FILE = ROOT_DIR+ '/data/{}/driving_log.csv'.format(DATA_TYPE)
+LABELS_FILE = ROOT_DIR+ '/data/{}/delete_all_zero_driving_log.csv'.format(DATA_TYPE)
 
 # features and labels path
 FEATURES = DATA_PATH + 'features.npy'
