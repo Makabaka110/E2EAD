@@ -14,7 +14,7 @@ def preprocess(img):
 # Load the left, center, and right camera data, shift (-/+) delta for left and right camera
 def combined_data_loading(delta,data_directory):
     sub_directory = []
-    features = []
+    features_path = []
     labels = []
     # find all visible sub directory under data_directory
     for name in os.listdir(data_directory):
@@ -46,8 +46,8 @@ def combined_data_loading(delta,data_directory):
             for j in range(3):
                 img_path = logs[i][j]
                 img_path = features_directory + img_path
-                img = plt.imread(img_path)
-                features.append(preprocess(img))
+                #img = plt.imread(img_path)
+                features_path.append(img_path)
                 if j == 0:
                     labels.append(float(logs[i][3]))
                 elif j == 1:
@@ -57,13 +57,14 @@ def combined_data_loading(delta,data_directory):
 
         print('extracting data from: ' + sub_dir + '    finished')
 
-    print('doing data augmentation   started')
+    # print('doing data augmentation   started')
 
-    # Augment the data by vertically flipping the image
-    features = np.concatenate((features, np.flipud(features)), axis=0)
-    labels = np.concatenate((labels, -np.array(labels)), axis=0)
+    # # Augment the data by vertically flipping the image
+    # features = np.concatenate((features, np.flipud(features)), axis=0)
 
-    print('doing data augmentation   finished')
+    # labels = np.concatenate((labels, -np.array(labels)), axis=0)
+
+    # print('doing data augmentation   finished')
 
 
-    return features, labels 
+    return features_path, labels 

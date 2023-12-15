@@ -32,3 +32,13 @@ for i, data in enumerate(dataset_loader, 0):
     if i == 0:
         break
 plt.show()
+
+#extract the string after the last under slash in the model path
+model_name = config.LOAD_MODEL_PATH.split('/')[-1]
+#delete the .pth extension
+model_name = model_name[:-4]
+#save the figure
+fig.savefig(config.MODEL_PATH+model_name+"_visualize_prediction.png")
+#close the figure
+plt.close(fig)
+

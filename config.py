@@ -7,7 +7,7 @@ import os
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # data type, model type AND their classes
-DATA_TYPE = 'combined_dataset'
+DATA_TYPE = 'combined_dataset_20231214'
 MODEL_TYPE = 'ResNet50'
 LOAD_TRAIN_MODEL_PATH = None
 
@@ -26,7 +26,7 @@ LABELS = DATA_PATH + 'labels.npy'
 MODEL_PATH = ROOT_DIR+'/models/{}/{}/'.format(DATA_TYPE,MODEL_TYPE)
 
 # load model path
-LOAD_MODEL_PATH = ROOT_DIR+'/models/{}/{}/epho_3.pth'.format(DATA_TYPE,MODEL_TYPE)
+LOAD_MODEL_PATH = ROOT_DIR+'/models/{}/{}/epho_7.pth'.format(DATA_TYPE,MODEL_TYPE)
 
 #CUDA device
 DEVICE = "cuda"
@@ -37,7 +37,7 @@ LEARNING_RATE = 0.0012
 MAX_EPOCHS = 100
 WEIGHT_DECAY = 0.0
 PATIENCE = 5
-DELTA = 0.25
+DELTA = 0.2
 BETAS = (0.9, 0.999)
 
 

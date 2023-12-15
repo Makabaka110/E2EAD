@@ -10,5 +10,7 @@ import config
 features, labels = combined_data_loading(config.DELTA, config.DATA_PATH)
 
 # save the features and labels as .npy files
+print("saving the features and labels as .npy files  started")
 np.save(config.FEATURES,features)
 np.save(config.LABELS,labels)
+print("saving the features and labels as .npy files  finished")
