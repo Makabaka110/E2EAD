@@ -19,7 +19,9 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 
 **Simulator preparation:**
 This project uses the Udacity Autonomous Driving Simulator, which can be downloaded and installed from the official Udacity repository or website.
-
+<p align="center">
+<img  width="594" alt="5e19e224d7bd5058798fdaf65e27815" src="https://github.com/Makabaka110/E2EAD/blob/main/assets/simulator.png">
+</p>
 
 
 ### Training Data Acquisition
@@ -45,7 +47,7 @@ The data encompasses various driving behaviors to ensure the model can handle di
 
 Our model is built upon the ResNet50 architecture, leveraging its deep residual learning framework for efficient feature extraction. 
 
-We redesign the FC layer in other to predict steering angles from the input image. The structure is display as the picture below:
+We redesign the FC layer in order to predict steering angles from the input image. The structure is displayed as the picture below:
 
 <p align="center">
   <img src="https://github.com/Makabaka110/E2EAD/assets/55959544/02dab8cb-153d-49b3-8dc1-072f2af412d1" alt="animated" />
