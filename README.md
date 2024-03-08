@@ -41,6 +41,7 @@ The data encompasses various driving behaviors to ensure the model can handle di
 - **Large Angles**: Specifically collected when the vehicle is near the edge of the road, requiring significant steering adjustments to correct the course.
 - **Stay in the Middle of the Road**: Data showing stable driving behavior, with the vehicle centered between the road markings.
 
+<img width="594" alt="5e19e224d7bd5058798fdaf65e27815" src="https://github.com/Makabaka110/E2EAD/assets/55959544/d42c74a5-8dd4-4bf7-8294-3e69c184ed05">
 
 
 
@@ -50,6 +51,7 @@ Our model is built upon the ResNet50 architecture, leveraging its deep residual 
 
 We redesign the FC layer in other to predict steering angles from the input image. The structure is display as the picture below:
 
+![network structure drawio](https://github.com/Makabaka110/E2EAD/assets/55959544/81aa2a71-86fd-474c-8e63-1145274f5617)
 
 
 
@@ -80,5 +82,6 @@ We redesign the FC layer in other to predict steering angles from the input imag
       eprint={1604.07316},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
-}
+}![copy_D8CB7CA4-F548-4B21-83CC-1239946083D1](https://github.com/Makabaka110/E2EAD/assets/55959544/7f37a6ca-0779-4bfd-91cd-2c19ea15df26)
+
 ```
