@@ -30,7 +30,7 @@ def combined_data_loading(delta,data_directory):
 
     for sub_dir in sub_directory:
         features_directory = data_directory + sub_dir + '/'
-        labels_file = data_directory + sub_dir + '/driving_log.csv'
+        labels_file = data_directory + sub_dir + '/modified_driving_log.csv'
         logs = []
 
         print('extracting data from: ' + sub_dir + '    started')

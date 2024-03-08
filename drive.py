@@ -60,9 +60,9 @@ def telemetry(sid, data):
             else:
                 # When speed is below 20 then increase throttle by speed_factor
                 if ((float(speed)) < 25):
-                    speed_factor = 0.5
+                    speed_factor = 1
                 else:
-                    speed_factor = 1.0 
+                    speed_factor = 1
                 if (abs(steering_angle) < 0.1): 
                     throttle = 0.1 * speed_factor
                 elif (abs(steering_angle) < 0.5):

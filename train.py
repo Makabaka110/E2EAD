@@ -87,7 +87,17 @@ for epoch in range(config.MAX_EPOCHS):
     
     if not os.path.exists(config.MODEL_PATH):
         os.makedirs(config.MODEL_PATH)
-    torch.save(model.state_dict(), config.MODEL_PATH+'epho_'+str(epoch)+'.pth')
+    torch.save(model.state_dict(), config.MODEL_PATH+'epoch_'+str(epoch+1)+'.pth')
+
+    #plt and save the loss curve image
+    plt.plot(train_losses, label='Training loss')
+    plt.plot(val_losses, label='Validation loss')
+    plt.legend(frameon=False)
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.savefig(config.MODEL_PATH+'loss.png')
+    plt.close()
+
     
 writer.close()
 
