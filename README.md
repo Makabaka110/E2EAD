@@ -1,6 +1,6 @@
 # End-to-End Autonomous Driving
 
-This project aims to create a model for autonomous driving using a deep learning approach. The model is trained with data collected from a driving simulator and can control a virtual car in the simulator environment.
+This project is based on the principle of end-to-end autonomous driving, where training data is collected from three left, center and right cameras and a neural network is trained using Resnet and RNN, which ultimately enables the vehicle to drive autonomously on the track through a single middle camera.
 
 ## Installation
 
@@ -27,16 +27,12 @@ This project uses the Udacity Autonomous Driving Simulator, which can be downloa
 Our data acquisition process is designed to capture a wide range of driving behaviors and control inputs.
 
 1. **Data Types**
-
 We collect two types of data based on the input method:
-
 - **Keyboard Collected Data**: This data is discrete and discontinuous, reflecting the typical on-off keypresses.
 - **Xbox Controller Collected Data**: Using the controller allows for continuous and stable input, better mimicking real-world driving.
 
 2. **Driving Behavior**
-
 The data encompasses various driving behaviors to ensure the model can handle different scenarios:
-
 - **Counterclockwise and Clockwise**: To teach the model about making turns in both directions.
 - **Large Angles**: Specifically collected when the vehicle is near the edge of the road, requiring significant steering adjustments to correct the course.
 - **Stay in the Middle of the Road**: Data showing stable driving behavior, with the vehicle centered between the road markings.
