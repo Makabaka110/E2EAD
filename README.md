@@ -74,6 +74,7 @@ We redesign the FC layer in other to predict steering angles from the input imag
 <p align="center">
   <img src="https://github.com/Makabaka110/E2EAD/blob/main/assets/performance.GIF" alt="animated" />
 </p>
+
 ### Thesis reference
 ```
 @misc{bojarski2016end,
