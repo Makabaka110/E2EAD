@@ -40,9 +40,9 @@ The data encompasses various driving behaviors to ensure the model can handle di
 - **Counterclockwise and Clockwise**: To teach the model about making turns in both directions.
 - **Large Angles**: Specifically collected when the vehicle is near the edge of the road, requiring significant steering adjustments to correct the course.
 - **Stay in the Middle of the Road**: Data showing stable driving behavior, with the vehicle centered between the road markings.
-
-<img align='center' width="594" alt="5e19e224d7bd5058798fdaf65e27815" src="https://github.com/Makabaka110/E2EAD/assets/55959544/d42c74a5-8dd4-4bf7-8294-3e69c184ed05">
-
+<p align="center">
+<img  width="594" alt="5e19e224d7bd5058798fdaf65e27815" src="https://github.com/Makabaka110/E2EAD/assets/55959544/d42c74a5-8dd4-4bf7-8294-3e69c184ed05">
+</p>
 
 
 ### Network Design
@@ -51,10 +51,8 @@ Our model is built upon the ResNet50 architecture, leveraging its deep residual 
 
 We redesign the FC layer in other to predict steering angles from the input image. The structure is display as the picture below:
 
-![network structure drawio](https://github.com/Makabaka110/E2EAD/assets/55959544/02dab8cb-153d-49b3-8dc1-072f2af412d1)
 <p align="center">
   <img src="https://github.com/Makabaka110/E2EAD/assets/55959544/02dab8cb-153d-49b3-8dc1-072f2af412d1" alt="animated" />
-</p>
 
 
 
@@ -72,8 +70,6 @@ We redesign the FC layer in other to predict steering angles from the input imag
 
 
 ### Evaluation in simulator
-![](https://github.com/Makabaka110/E2EAD/blob/main/assets/performance.GIF)
-
 
 <p align="center">
   <img src="https://github.com/Makabaka110/E2EAD/blob/main/assets/performance.GIF" alt="animated" />
