@@ -50,8 +50,8 @@ Our model is built upon the ResNet50 architecture, leveraging its deep residual 
 We redesign the FC layer in order to predict steering angles from the input image. The structure is displayed as the picture below:
 
 <p align="center">
-  <img src="https://github.com/Makabaka110/E2EAD/assets/55959544/02dab8cb-153d-49b3-8dc1-072f2af412d1" alt="animated" />
-
+  <img src="assets/network%20structure.drawio.png" alt="animated" />
+</p>
 
 
 ### Project Hierarchy
